@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<script>
+$(document).ready(function(){
+$.get("http://localhost:1336/"+$("#databox").val(), function(data, status){
+		$("#content").html(data);
+    });
+
+    $(document).on("click", function(){
+		$("#res").html("");
+		$.get("http://localhost:1337/send?value="+$("#databox").val(), function(data, status){
+		$("#res").html(data);
+    });
+		
+    });
+});
+</script>
+<section>
+<div id="content">
+
+</div>
+</section>
+</body>
+<style>
+section {
+        background: black;
+        color: white;
+        border-radius: 1em;
+        padding: 1em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%) }
+</style>
+</html>
+
